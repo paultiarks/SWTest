@@ -18,7 +18,9 @@
   <script>
     // register ServiceWorker, remember to use absolute path!
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('/SWTest/sw.js', { scope: '/' })
+      navigator.serviceWorker.register('/SWTest/sw.js', { scope: '/' }).then((reg) => {
+        console.log("registered, scope: " + reg.scope);
+      })
     }
 
     // --- Application code here ---
