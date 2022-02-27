@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Title</title>
+  <link rel="canonical" href="https://paultiarks.github.io/SWTest/" />
+  <style type="text/css">
+    /* --- application CSS here --- */
+    * {
+      background-color: #F5F4F0;
+      font-family: Georgia, serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Content</h1>
+  <script>
+    // register ServiceWorker, remember to use absolute path!
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/SWTest/sw.js', { scope: '/SWTest/' })
+    }
+
+    // --- Application code here ---
+    <img src="testImage.jpg" />
+  </script>
+</body>
+
+</html>
