@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB7195D27CC21A00092FF94 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB7195C27CC21A00092FF94 /* ExampleViewController.swift */; };
 		3BB87F0C27CC124600A63648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB87F0B27CC124600A63648 /* AppDelegate.swift */; };
 		3BB87F0E27CC124600A63648 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB87F0D27CC124600A63648 /* SceneDelegate.swift */; };
 		3BB87F1027CC124600A63648 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB87F0F27CC124600A63648 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BB7195C27CC21A00092FF94 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		3BB87F0827CC124600A63648 /* SWTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB87F0B27CC124600A63648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BB87F0D27CC124600A63648 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				3BB87F1427CC124800A63648 /* Assets.xcassets */,
 				3BB87F1627CC124800A63648 /* LaunchScreen.storyboard */,
 				3BB87F1927CC124800A63648 /* Info.plist */,
+				3BB7195C27CC21A00092FF94 /* ExampleViewController.swift */,
 			);
 			path = SWTest;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB87F1027CC124600A63648 /* ViewController.swift in Sources */,
+				3BB7195D27CC21A00092FF94 /* ExampleViewController.swift in Sources */,
 				3BB87F0C27CC124600A63648 /* AppDelegate.swift in Sources */,
 				3BB87F0E27CC124600A63648 /* SceneDelegate.swift in Sources */,
 			);

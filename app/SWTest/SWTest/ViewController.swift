@@ -11,9 +11,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
+    @IBAction func remotelyLoadedTapped() {
+        let example = ExampleViewController(displayMode: .remote)
+        self.navigationController?.pushViewController(example, animated: true)
+    }
 
+    @IBAction func locallyLoadedTapped() {
+        let example = ExampleViewController(displayMode: .local)
+        self.navigationController?.pushViewController(example, animated: true)
+    }
 }
 

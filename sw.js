@@ -9,6 +9,8 @@ var URLS = [                            // Add URL you want to cache in this lis
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
   console.log('fetch request : ' + e.request.url);
+  e.request.url.scheme = "nativeimage";
+  return fetch(e.request);
 })
 
 // Delete outdated caches
