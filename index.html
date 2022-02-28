@@ -21,6 +21,10 @@
       navigator.serviceWorker.register('/SWTest/sw.js').then((reg) => {
         console.log("registered, scope: " + reg.scope);
       })
+
+      navigator.serviceWorker.onmessage = (event) => {
+        console.log("SW Message: " + event);
+      }
     }
 
     // --- Application code here ---

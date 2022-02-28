@@ -8,10 +8,9 @@ var URLS = [                            // Add URL you want to cache in this lis
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
-  console.log('fetch request : ' + e.request.url);
+  clients[0].postMessage(" fetch: " + e.request);
   if (e.request.url.includes("testImage.jpg")) {
-    var newRequest = e.request.clone();
-    newRequest.url = "https://paultiarks.github.io/SWTest/testImageTwo.jpg"
+    let newRequest = Request("https://paultiarks.github.io/SWTest/testImageTwo.jpg")
     e.respondWith(async function () {
       return fetch(newRequest);
     })
@@ -20,5 +19,5 @@ self.addEventListener('fetch', function (e) {
 
 // Delete outdated caches
 self.addEventListener('activate', function (e) {
-  console.log("activate");
+  clients[0].postMessage("activated");
 })
