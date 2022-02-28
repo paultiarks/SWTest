@@ -19,7 +19,7 @@ self.addEventListener('fetch', function (e) {
     outgoingPort.postMessage({ message: " fetch: " + e.request });
   }
   if (e.request.url.includes("testImage.jpg")) {
-    let newRequest = Request("https://paultiarks.github.io/SWTest/testImageTwo.jpg")
+    let newRequest = new Request("https://paultiarks.github.io/SWTest/testImageTwo.jpg")
     e.respondWith(fetch(newRequest))
   }
 })
