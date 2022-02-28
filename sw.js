@@ -11,7 +11,7 @@ self.addEventListener('fetch', function (e) {
   console.log('fetch request : ' + e.request.url);
   if (e.request.url.includes("testImage.jpg")) {
     var newRequest = e.request.clone();
-    newRequest.url = "https://paultiarks.github.io/testImageTwo.jpg"
+    newRequest.url = "https://paultiarks.github.io/SWTest/testImageTwo.jpg"
     e.respondWith(async function () {
       return fetch(newRequest);
     })
