@@ -9,11 +9,13 @@ var URLS = [                            // Add URL you want to cache in this lis
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
   console.log('fetch request : ' + e.request.url);
-  var newRequest = e.request.clone();
-  newRequest.url = "nativeimage://testImage.jpg"
-  e.respondWith(async function () {
-    return fetch(newRequest);
-  })
+  if (e.request.url.includes("testImage.jpg")) {
+    var newRequest = e.request.clone();
+    newRequest.url = "https://paultiarks.github.io/testImageTwo.jpg"
+    e.respondWith(async function () {
+      return fetch(newRequest);
+    })
+  }
 })
 
 // Delete outdated caches
