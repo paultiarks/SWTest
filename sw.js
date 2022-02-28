@@ -20,9 +20,7 @@ self.addEventListener('fetch', function (e) {
   }
   if (e.request.url.includes("testImage.jpg")) {
     let newRequest = Request("https://paultiarks.github.io/SWTest/testImageTwo.jpg")
-    e.respondWith(async function () {
-      return fetch(newRequest);
-    })
+    e.respondWith(fetch(newRequest))
   }
 })
 
