@@ -22,9 +22,15 @@
         console.log("registered, scope: " + reg.scope);
       })
 
-      navigator.serviceWorker.onmessage = (event) => {
-        console.log("SW Message: " + event);
-      }
+      const messageChannel = new MessageChannel();
+
+      navigator.serviceWorker.controller.postMessage({
+        type: 'INIT_PORT',
+      }, [messageChannel.port2]);
+
+      messageChannel.port1.onmessage = (event) => {
+        console.log("event: " + event);
+      };
     }
 
     // --- Application code here ---

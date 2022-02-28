@@ -6,10 +6,17 @@ var URLS = [                            // Add URL you want to cache in this lis
   '/SWTest/index.html'            // add path to those files here
 ]
 
+let outgoingPort;
+self.addEventListener('message', function (e) {
+  if (e.data && e.data.type === 'INIT_PORT') {
+    outgoingPort = e.ports[0];
+  }
+});
+
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
-  if (clients && clients.length) {
-    clients[0].postMessage({ message: " fetch: " + e.request });
+  if (outgoingPort) {
+    outgoingPort.postMessage({ message: " fetch: " + e.request });
   }
   if (e.request.url.includes("testImage.jpg")) {
     let newRequest = Request("https://paultiarks.github.io/SWTest/testImageTwo.jpg")
@@ -21,7 +28,7 @@ self.addEventListener('fetch', function (e) {
 
 // Delete outdated caches
 self.addEventListener('activate', function (e) {
-  if (clients && clients.length) {
-    clients[0].postMessage({ message: "activated" });
+  if (outgoingPort) {
+    outgoingPort.postMessage({ message: "activated" });
   }
 })
