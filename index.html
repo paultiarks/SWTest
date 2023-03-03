@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' nativeimage:"
+    />
     <script>
       console.log("trying fetch");
       fetch("nativeimage://the/path");
