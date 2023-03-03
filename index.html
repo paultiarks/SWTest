@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Title</title>
+    <link rel="canonical" href="https://paultiarks.github.io/SWTest/" />
+    <style type="text/css">
+      /* --- application CSS here --- */
+      * {
+        background-color: #f5f4f0;
+        font-family: Georgia, serif;
+      }
+    </style>
+  </head>
 
-<head>
-  <title>Title</title>
-  <link rel="canonical" href="https://paultiarks.github.io/SWTest/" />
-  <style type="text/css">
-    /* --- application CSS here --- */
-    * {
-      background-color: #F5F4F0;
-      font-family: Georgia, serif;
-    }
-  </style>
-</head>
+  <body>
+    <h1>Content</h1>
+    <script>
+      fetch("nativeimage://the/path");
+    </script>
+    <script>
+      // register ServiceWorker, remember to use absolute path!
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/SWTest/sw.js").then((reg) => {
+          console.log("registered, scope: " + reg.scope);
+        });
 
-<body>
-  <h1>Content</h1>
-  <script>
-    // register ServiceWorker, remember to use absolute path!
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('/SWTest/sw.js').then((reg) => {
-        console.log("registered, scope: " + reg.scope);
-      })
+        const messageChannel = new MessageChannel();
 
-      const messageChannel = new MessageChannel();
+        navigator.serviceWorker.controller.postMessage(
+          {
+            type: "INIT_PORT",
+          },
+          [messageChannel.port2]
+        );
 
-      navigator.serviceWorker.controller.postMessage({
-        type: 'INIT_PORT',
-      }, [messageChannel.port2]);
+        messageChannel.port1.onmessage = (event) => {
+          console.log("event: " + event);
+        };
+      }
 
-      messageChannel.port1.onmessage = (event) => {
-        console.log("event: " + event);
-      };
-    }
-
-    // --- Application code here ---
-  </script>
-  <img src="testImage.jpg" width="300" height="168" />
-</body>
-
+      // --- Application code here ---
+    </script>
+    <img src="testImage.jpg" width="300" height="168" />
+  </body>
 </html>
