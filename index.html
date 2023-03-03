@@ -20,24 +20,6 @@
     <h1>Content</h1>
     <script>
       // register ServiceWorker, remember to use absolute path!
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register("/SWTest/sw.js").then((reg) => {
-          console.log("registered, scope: " + reg.scope);
-        });
-
-        const messageChannel = new MessageChannel();
-
-        navigator.serviceWorker.controller.postMessage(
-          {
-            type: "INIT_PORT",
-          },
-          [messageChannel.port2]
-        );
-
-        messageChannel.port1.onmessage = (event) => {
-          console.log("event: " + event);
-        };
-      }
 
       // --- Application code here ---
     </script>
