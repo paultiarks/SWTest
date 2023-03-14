@@ -40,6 +40,7 @@ class ExampleViewController: UIViewController {
         config.setURLSchemeHandler(schemeHandler, forURLScheme: LocalImageSchemeHandler.scheme)
         self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 500, height: 500), configuration: config)
         super.init(nibName: nil, bundle: nil)
+        self.webView.navigationDelegate = self
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(reload))
     }
 
@@ -69,4 +70,25 @@ class ExampleViewController: UIViewController {
             self.webView.load(request)
         }
     }
+}
+
+extension ExampleViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+        NSLog("Stop")
+        return .allow
+    }
+
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        NSLog("start: \(navigationItem)")
+    }
+
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        NSLog("commit: \(navigation)")
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        NSLog("finish: \(navigation)")
+    }
+
+
 }
